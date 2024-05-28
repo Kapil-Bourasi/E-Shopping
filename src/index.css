@@ -1,0 +1,44 @@
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  background-color: blueviolet;
+  padding: 15px;
+  color:  white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.brand{
+  font-weight: bold;
+  width: 20%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+.search-bar{
+  width: 60%;
+}
+.search-bar input{
+  width: 50%;
+}
+input::placeholder{
+  font-weight: bold;
+}
+.cart{
+  width: 20%;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+.card-footer{
+  overflow: auto;
+}
+.card-title{
+  overflow: auto;
+}
+.card:hover{
+  background-color: rgb(146, 215, 244);
+  font-family: arial;
+  font-weight: bold;
+}
