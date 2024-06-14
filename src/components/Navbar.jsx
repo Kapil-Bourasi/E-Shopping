@@ -13,6 +13,9 @@ const Navbar = () => {
       })
   },[]);
 
+  function ReloadCat(){
+    window.location.reload();
+  }
 
   return (
     <header className="sticky-top" >
@@ -25,7 +28,7 @@ const Navbar = () => {
           {
             categories.map(category=>{
                 return(<>
-                <div key={category} className="item">
+                <div onClick={ReloadCat} key={category} className="item">
                 <Link style={{textDecoration:'none' , color:'white'}} to={`/products/${category}`}>{category}</Link>
                 </div>
                 </>)

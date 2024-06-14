@@ -5,12 +5,21 @@ import { Link } from 'react-router-dom'
 const Products = () => {
 
     const [products , setProducts] = useState([])
+    const [search , setSearch] = useState([]);
 
     function LoadProducts(){
         axios.get('https://fakestoreapi.com/products')
          .then(res =>{
         setProducts(res.data)
+        setSearch(res.data)
+        .catch((err)=>{
+            console.log(err)
+        })
     })
+    }
+
+    const FilterChange =(e)=>{
+        setSearch(products.filter(f=>f.category.toLowerCase().includes(e.target.value)))
     }
 
     useEffect(()=>{
@@ -21,10 +30,12 @@ const Products = () => {
   return (
     <>
     <div className='container-fluid mt-1 ' style={{backgroundColor:'beige'}} >
-        <h4 className='d-flex justify-content-center text-bg-info text-white'>All Products</h4>
+       <div className='d-flex justify-content-around'> <h4 className=' w-25 text-center shadow text-bg-info text-white rounded-pill p-2'>All Products</h4>
+       <input type="search" onChange={FilterChange} className='rounded-pill p-1 w-25 text-start' placeholder='search your products' /></div>
+
         <div className='row'>
             {
-                products.map((product)=>{
+                search.map((product)=>{
                     return(<>
                     <div className='col-lg-3 col-md-6 p-2 text-center'>
                         <div className='card' style={{width:'18rem'}}>

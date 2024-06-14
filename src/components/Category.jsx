@@ -16,7 +16,7 @@ const FakeStoreProducts = () => {
 
   useEffect(() => {
     LoadCategory();
-  }, []);
+  }, [ ]);
 
   return (
     <>
